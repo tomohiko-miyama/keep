@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>有限会社A｜不動産売買</title>
+  <meta name="description" content="有限会社Aは土地・戸建て・マンション・事業用不動産まで幅広く売買をサポートします。無料査定・買取相談もお気軽に。" />
+  <meta property="og:title" content="有限会社A｜不動産売買" />
+  <meta property="og:description" content="土地・戸建・マンション・事業用まで。地域密着でスピード対応。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/ogp.jpg" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0f172a; /* slate-900 */
+      --card:#111827; /* gray-900 */
+      --muted:#6b7280; /* gray-500 */
+      --text:#e5e7eb; /* gray-200 */
+      --accent:#06b6d4; /* cyan-500 */
+      --accent-2:#22c55e; /* green-500 */
+      --max:1100px;
+      --radius:18px;
+      --shadow:0 10px 25px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","BIZ UDPGothic","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.7}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;border-radius:12px}
+    .wrap{max-width:var(--max);margin:auto;padding:0 16px}
+    header{position:sticky;top:0;background:rgba(15,23,42,.75);backdrop-filter:saturate(150%) blur(8px);z-index:50;border-bottom:1px solid #1f2937}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:var(--shadow);font-weight:700}
+    .brand h1{font-size:18px;margin:0}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:#e5e7eb;font-weight:600}
+    .hamburger{display:none;border:1px solid #334155;border-radius:10px;padding:8px;background:#0b1220}
+
+    .hero{padding:56px 0 24px}
+    .hero .card{background:radial-gradient(1200px 500px at 10% -20%,rgba(6,182,212,.18),transparent),radial-gradient(1000px 400px at 100% 0,rgba(34,197,94,.12),transparent);border:1px solid #1f2937;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .hero h2{font-size:clamp(26px,4.5vw,42px);line-height:1.2;margin:0 0 10px}
+    .hero p{color:#cbd5e1;margin:0}
+    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:12px;padding:12px 18px;font-weight:700;background:linear-gradient(135deg,var(--accent),#0891b2);color:white;box-shadow:var(--shadow);cursor:pointer}
+    .btn.sec{background:#111827;border:1px solid #334155;color:#e5e7eb}
+
+    section{padding:32px 0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:var(--radius);padding:18px}
+
+    .kpi{grid-column:span 4}
+    .kpi h3{font-size:28px;margin:0}
+    .kpi p{margin:6px 0 0;color:#cbd5e1}
+
+    .listing{grid-column:span 4}
+    .listing .price{font-size:20px;font-weight:800}
+    .badge{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid #334155;border-radius:999px;color:#cbd5e1}
+
+    .two{grid-template-columns:repeat(12,1fr)}
+    .two .col{grid-column:span 6}
+
+    .company table{width:100%;border-collapse:collapse}
+    .company th,.company td{border-bottom:1px solid #1f2937;padding:10px;text-align:left}
+    .company th{color:#cbd5e1;width:30%}
+
+    .map{aspect-ratio:16/9;border:0;width:100%;border-radius:12px}
+
+    form input, form textarea, form select{width:100%;padding:12px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:#e5e7eb}
+    form label{font-size:14px;color:#cbd5e1}
+    form .row{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    form .row > div{grid-column:span 6}
+    form .row > div.full{grid-column:1/-1}
+    form button{margin-top:8px}
+
+    footer{padding:24px 0;color:#94a3b8;border-top:1px solid #1f2937}
+
+    @media (max-width:900px){
+      nav ul{display:none}
+      .hamburger{display:inline-flex}
+      .kpi,.listing{grid-column:span 12}
+      .two .col{grid-column:span 12}
+      .hero{padding-top:28px}
+      form .row > div{grid-column:span 12}
+    }
+  </style>
+  <script>
+    // モバイルナビ
+    document.addEventListener('DOMContentLoaded',()=>{
+      const btn=document.querySelector('#menu');
+      const list=document.querySelector('nav ul');
+      btn?.addEventListener('click',()=>{
+        const shown=list.style.display==='flex';
+        list.style.display= shown? 'none':'flex';
+        list.style.flexDirection='column';
+        list.style.gap='12px';
+        list.style.padding='12px 0';
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"RealEstateAgent",
+    "name":"有限会社A",
+    "url":"https://example.com/",
+    "logo":"https://example.com/logo.png",
+    "telephone":"03-0000-0000",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"（住所を入力）",
+      "addressLocality":"（市区町村）",
+      "addressRegion":"（都道府県）",
+      "postalCode":"000-0000",
+      "addressCountry":"JP"
+    },
+    "areaServed":"日本国内",
+    "openingHours":"Mo-Fr 09:00-18:00"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">A</div>
+        <h1>有限会社A｜不動産売買</h1>
+      </div>
+      <nav>
+        <button id="menu" class="hamburger" aria-label="メニュー">☰</button>
+        <ul>
+          <li><a href="#top">トップ</a></li>
+          <li><a href="#service">サービス</a></li>
+          <li><a href="#listings">物件</a></li>
+          <li><a href="#company">会社情報</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap hero">
+    <div class="card">
+      <h2>売る・買う・つなぐ。<br>地域に寄り添う不動産売買のパートナー。</h2>
+      <p>土地／戸建て／マンション／事業用まで、ワンストップでご提案。スピード査定・秘密厳守。まずはご相談ください。</p>
+      <div class="cta">
+        <a class="btn" href="#contact">無料相談する</a>
+        <a class="btn sec" href="#service">できることを見る</a>
+      </div>
+    </div>
+  </main>
+
+  <section id="service" class="wrap">
+    <h3>サービス</h3>
+    <div class="grid">
+      <div class="kpi card"><h3>即日査定</h3><p>簡単な項目入力で概算価格をご提示。（正式査定は現地確認の上）</p></div>
+      <div class="kpi card"><h3>買取相談</h3><p>お急ぎの方に。自社・提携買取でスピード成約に対応。</p></div>
+      <div class="kpi card"><h3>販売戦略</h3><p>周辺データと広告運用で最短売却をサポート。</p></div>
+    </div>
+  </section>
+
+  <section id="listings" class="wrap">
+    <h3>物件情報（ダミー）</h3>
+    <div class="grid">
+      <article class="listing card">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop" alt="戸建て外観の例">
+        <h4>〇〇市 △△町 戸建て</h4>
+        <div class="price">3,480万円</div>
+        <div class="badge">新着</div>
+        <p>4LDK／土地120㎡／駅徒歩12分</p>
+      </article>
+      <article class="listing card">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="マンション外観の例">
+        <h4>◇◇マンション 7F</h4>
+        <div class="price">4,280万円</div>
+        <div class="badge">おすすめ</div>
+        <p>3LDK／専有70㎡／角部屋</p>
+      </article>
+      <article class="listing card">
+        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f?q=80&w=1200&auto=format&fit=crop" alt="オフィスの例">
+        <h4>事業用ビル 1棟</h4>
+        <div class="price">ご相談</div>
+        <div class="badge">事業用</div>
+        <p>延床800㎡／駐車場10台</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap two">
+    <div class="col card">
+      <h3>選ばれる理由</h3>
+      <ul>
+        <li>売買専門の担当者が一気通貫で対応</li>
+        <li>周辺相場と成約事例に基づく価格提案</li>
+        <li>写真・間取図・広告文までスピーディに制作</li>
+      </ul>
+    </div>
+    <div class="col card">
+      <h3>対応エリア</h3>
+      <p>（エリア名を入力）を中心に日本全国のご相談に対応。</p>
+    </div>
+  </section>
+
+  <section id="company" class="wrap company">
+    <h3>会社情報</h3>
+    <div class="card">
+      <table>
+        <tr><th>会社名</th><td>有限会社A</td></tr>
+        <tr><th>所在地</th><td>〒000-0000 〇〇県〇〇市〇〇0-0-0</td></tr>
+        <tr><th>電話</th><td><a href="tel:0300000000">03-0000-0000</a></td></tr>
+        <tr><th>免許番号</th><td>〇〇県知事（○）第00000号</td></tr>
+        <tr><th>所属団体</th><td>（例）全国宅地建物取引業協会 など</td></tr>
+        <tr><th>営業時間</th><td>9:00〜18:00（定休：水）</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h4>アクセス</h4>
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.953544!2d139.767125!3d35.681236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z44CSMTAwLTAwMDEg5p2x5Lqs6YO95rGf5ZCI5biC!5e0!3m2!1sja!2sjp!4v0000000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p style="color:#94a3b8">※実際の住所に差し替えてください。</p>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <h3>お問い合わせ</h3>
+    <div class="card">
+      <!-- 初期設定はmailto。サーバー不要。運用開始後はフォーム送信サービスへの差し替え推奨 -->
+      <form action="mailto:info@example.com" method="post" enctype="text/plain">
+        <div class="row">
+          <div>
+            <label for="name">お名前</label>
+            <input id="name" name="お名前" required />
+          </div>
+          <div>
+            <label for="tel">電話番号</label>
+            <input id="tel" name="電話番号" />
+          </div>
+          <div class="full">
+            <label for="email">メールアドレス</label>
+            <input id="email" type="email" name="メール" required />
+          </div>
+          <div class="full">
+            <label for="type">ご相談内容</label>
+            <select id="type" name="相談種別">
+              <option>査定依頼</option>
+              <option>購入相談</option>
+              <option>買取のご相談</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="msg">メッセージ</label>
+            <textarea id="msg" name="内容" rows="6"></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">送信</button>
+        <p style="color:#94a3b8;font-size:14px;margin:8px 0 0">※メールソフトが起動します。サーバー経由の送信に変更したい場合はお知らせください。</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <small>© <span id="y"></span> 有限会社A</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
